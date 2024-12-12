@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+  <div class="outter_container">
+    <div class="signup_container">
+      <div class="signup_header">Sign Up</div>
+      <form id="signupForm" class="form_container" method="post">
+        <input id="username" class="user_n" type="text" name="username" required placeholder="User name">
+        <input id="email" class="mail" type="email" name="email" required placeholder="Email">
+        <input id="password" class="pass" type="password" name="password" required placeholder="Password">
+        <input class="submit" type="submit" value="Sign up">
+        <div class="register">
+          <p>Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
+        alert('Fill all fields, cannot be empty!');
+        return;
+      }
+
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters long.');
+        return;
+      }
+
+      const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+      const userExists = existingUsers.some(user => user.username === username || user.email === email);
+
+      if (userExists) {
+        alert('Username or email exists! Please choose a different one.');
+      } else {
+        existingUsers.push({ username, email, password });
+        localStorage.setItem('users', JSON.stringify(existingUsers));
+        alert('Sign up successful!');
+        document.getElementById('signupForm').reset();
+      }
+    });
+  </script>
+</body>
+</html>

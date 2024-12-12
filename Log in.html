@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Log In</title>
+  <link rel="stylesheet" href="Log In.css">
+</head>
+<body>
+  <div class="outter_container">
+    <div class="login_container">
+      <div class="login_header">Log In</div>
+      <form id="login-form" class="form_container" method="post">
+        <input id="email" class="e_pass" type="email" name="" value="" required placeholder="Email">
+        <input id="password" class="e_pass" type="password" name="" value="" required placeholder="Password">
+        <input class="submit" type="submit" name="" value="Log in">
+        <div class="register">
+          <p>Don't have an account? <a class="sign_up_link" href="register.html">sign up</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (email.trim() === '' || password.trim() === '')
+       {
+         alert('Fill all fields, cannot be empty!');
+         return; }
+
+      const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+      const user = existingUsers.find(user => user.email === email && user.password === password);
+
+      if (user) {
+        alert('Log in successful! Welcome back.');
+      }
+      else {
+        alert('Invalid email or password. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

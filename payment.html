@@ -1,0 +1,146 @@
+<!-- payment.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Gateway</title>
+    <!-- Correct link to the external CSS file -->
+    <link rel="stylesheet" href="paymentStyle.css" />
+  </head>
+  <body>
+    <!-- Header Start -->
+    <div class="header">
+      <nav>
+        <div class="content">
+          <div class="logo">
+            <a href="Home Page.html"> <h1>Mirror</h1></a>
+          </div>
+          <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="ProductsPage.html">Products</a></li>
+            <li><a href="index.html#footer">Contact</a></li>
+            <li><a href="index.html#review">Reviews</a></li>
+            <li><a href="sell.html">Sell</a></li>
+            <li><a href="register.html">Sign up</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- Header End -->
+
+    <div class="payment-container">
+      <div class="payment-form">
+        <h2>Payment Details</h2>
+        <form id="paymentForm">
+          <!-- Card Number -->
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input
+              type="text"
+              id="cardNumber"
+              name="cardNumber"
+              placeholder="Enter your card number"
+              required
+            />
+          </div>
+
+          <!-- Expiry Date -->
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date</label>
+            <input
+              type="text"
+              id="expiryDate"
+              name="expiryDate"
+              placeholder="MM/YY"
+              required
+            />
+          </div>
+
+          <!-- CVV -->
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input
+              type="text"
+              id="cvv"
+              name="cvv"
+              placeholder="Enter CVV"
+              required
+            />
+          </div>
+
+          <!-- Cardholder Name -->
+          <div class="form-group">
+            <label for="cardholderName">Cardholder Name</label>
+            <input
+              type="text"
+              id="cardholderName"
+              name="cardholderName"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <!-- Payment Button -->
+          <div class="form-group">
+            <button type="submit">Pay Now</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("paymentForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Collect form data
+          const cardNumber = document.getElementById("cardNumber").value;
+          const expiryDate = document.getElementById("expiryDate").value;
+          const cvv = document.getElementById("cvv").value;
+          const cardholderName =
+            document.getElementById("cardholderName").value;
+
+          // Store data in localStorage
+          const paymentData = {
+            cardNumber: cardNumber,
+            expiryDate: expiryDate,
+            cvv: cvv,
+            cardholderName: cardholderName,
+          };
+
+          localStorage.setItem("paymentData", JSON.stringify(paymentData));
+
+          // Optional: Provide feedback to the user
+          alert("Payment details saved successfully!");
+
+          // Reset form
+          document.getElementById("paymentForm").reset();
+        });
+    </script>
+    <!-- Footer Start -->
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="logo">
+          <a href="#"> <h1>Mirror</h1></a>
+        </div>
+
+        <p>
+          "A mirror doesn’t just reflect a space; it brings light, depth, and
+          personality to every corner of your home."
+        </p>
+      </div>
+      <hr />
+      <div class="footer-bottom-content">
+        <p>Designed By <a href="#">Mirror Team</a></p>
+        <div class="copyright">
+          <p>
+            &copy;Copyright <strong>Mirror Team</strong>.All Rights Reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!-- sell.html -->
+<script src="sell.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell Your Product</title>
+    <!-- Correct link to the external CSS file -->
+    <link rel="stylesheet" href="sellStyle.css" />
+  </head>
+  <body>
+    <!-- Header Start -->
+    <div class="header">
+      <nav>
+        <div class="content">
+          <div class="logo">
+            <a href="index.html"> <h1>Mirror</h1></a>
+          </div>
+          <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="ProductsPage.html">Products</a></li>
+            <li><a href="index.html#footer">Contact</a></li>
+            <li><a href="index.html#review">Reviews</a></li>
+            <li><a href="sell.html">Sell</a></li>
+            <li><a href="register.html">Sign up</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- Header End -->
+
+    <div class="container">
+      <h1>Sell Your Product</h1>
+
+      <form id="sellForm">
+        <!-- File upload input -->
+        <div class="form-group">
+          <label for="image">Upload Photo</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            required
+          />
+        </div>
+
+        <!-- Textarea for product description -->
+        <div class="form-group">
+          <label for="description">Product Description</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Enter a description of your product..."
+            required
+          ></textarea>
+        </div>
+
+        <!-- Submit button -->
+        <div class="form-group">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("sellForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form from submitting normally
+
+          // Get the file input and description
+          const imageInput = document.getElementById("image");
+          const description = document.getElementById("description").value;
+
+          if (imageInput.files.length > 0) {
+            const file = imageInput.files[0];
+            const reader = new FileReader();
+
+            // When the file is loaded, save it in local storage
+            reader.onload = function (e) {
+              const imageData = e.target.result;
+
+              // Save to local storage
+              localStorage.setItem("productImage", imageData);
+              localStorage.setItem("productDescription", description);
+
+              alert("Product saved in local storage!");
+
+              // Clear the form
+              imageInput.value = "";
+              document.getElementById("description").value = "";
+            };
+
+            // Read the file as a data URL
+            reader.readAsDataURL(file);
+          } else {
+            alert("Please upload an image.");
+          }
+        });
+    </script>
+
+    <!-- Footer Start -->
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="logo">
+          <a href="#"> <h1>Mirror</h1></a>
+        </div>
+
+        <p>
+          "A mirror doesn’t just reflect a space; it brings light, depth, and
+          personality to every corner of your home."
+        </p>
+      </div>
+      <hr />
+      <div class="footer-bottom-content">
+        <p>Designed By <a href="#">Mirror Team</a></p>
+        <div class="copyright">
+          <p>
+            &copy;Copyright <strong>Mirror Team</strong>.All Rights Reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <link rel="stylesheet" href="ProductsPage.css" />
+  </head>
+  <body>
+    <!-- Header Start -->
+    <div class="header">
+      <nav>
+        <div class="content">
+          <div class="logo">
+            <a href="Home%20Page.html"> <h1>Mirror</h1></a>
+          </div>
+          <ul class="links">
+            <li><a href="Home%20Page.html">Home</a></li>
+            <li><a href="Home%20Page.html#about">About</a></li>
+            <li><a href="ProductsPage.html">Products</a></li>
+            <li><a href="Home%20Page.html#footer">Contact</a></li>
+            <li><a href="Home%20Page.html#review">Reviews</a></li>
+            <li><a href="sell.html">Sell</a></li>
+            <li><a href="register.html">Sign up</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- Header End -->
+    <div class="container">
+      <div class="search-section">
+        <h2>Search Products</h2>
+        <form class="search-form" onsubmit="return searchProducts(event)">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+        <div id="noResults" class="no-results" style="display: none">
+          No products found.
+        </div>
+      </div>
+      <div class="products" id="productList">
+        <div class="product-card" data-name="Elegant Beveled Led Square Mirror">
+          <a href="SinglProduct1.html">
+            <img src="mirror1.jpg" />
+            <div class="product-name">Elegant Beveled Led Square Mirror</div>
+            <div class="product-rating">★★★★☆</div>
+            <div class="price">1,399 L.E</div>
+          </a>
+          <button
+            class="add-to-cart"
+            onclick="redirectToPayment('Elegant Beveled Led Square Mirror', 1399.99)"
+          >
+            Add to Cart
+          </button>
+        </div>
+        <div
+          class="product-card"
+          data-name="Modern Half Moon Led Mirror for Bathroom"
+        >
+          <a href="SinglProduct2.html">
+            <img src="mirror2.jpg" alt="Product 2" />
+            <div class="product-name">
+              Modern Half Moon Led Mirror for Bathroom
+            </div>
+            <div class="product-rating">★★★☆☆</div>
+            <div class="price">1,599 L.E</div>
+          </a>
+          <button
+            class="add-to-cart"
+            onclick="redirectToPayment('Modern Half Moon Led Mirror for Bathroom', 1599.99)"
+          >
+            Add to Cart
+          </button>
+        </div>
+        <div
+          class="product-card"
+          data-name="Wave of Elegance: Unique Wavy Led Mirror"
+        >
+          <a href="SinglProduct3.html">
+            <img src="mirror3.jpg" />
+            <div class="product-name">
+              Wave of Elegance: Unique Wavy Led Mirror
+            </div>
+            <div class="product-rating">★★★★★</div>
+            <div class="price">1,949 L.E</div>
+          </a>
+          <button
+            class="add-to-cart"
+            onclick="redirectToPayment('Wave of Elegance: Unique Wavy Led Mirror', 1949.99)"
+          >
+            Add to Cart
+          </button>
+        </div>
+        <div
+          class="product-card"
+          data-name="Chic Geometry: Square Mirror with Curved Detail"
+        >
+          <a href="SinglProduct4.html">
+            <img src="mirror4.jpg" />
+            <div class="product-name">
+              Chic Geometry: Square Mirror with Curved Detail
+            </div>
+            <div class="product-rating">★★★☆☆</div>
+            <div class="price">1,799 L.E</div>
+          </a>
+          <button
+            class="add-to-cart"
+            onclick="redirectToPayment('Chic Geometry: Square Mirror with Curved Detail', 1799.99)"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="ProductsPage.js"></script>
+
+    <!-- Footer Start -->
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="logo">
+          <a href="#"> <h1>Mirror</h1></a>
+        </div>
+
+        <p>
+          "A mirror doesn’t just reflect a space; it brings light, depth, and
+          personality to every corner of your home."
+        </p>
+      </div>
+      <hr />
+      <div class="footer-bottom-content">
+        <p>Designed By <a href="#">Mirror Team</a></p>
+        <div class="copyright">
+          <p>
+            &copy;Copyright <strong>Mirror Team</strong>.All Rights Reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+  </body>
+</html>
